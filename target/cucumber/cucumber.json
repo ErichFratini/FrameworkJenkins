@@ -1,0 +1,118 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Estar na plataforma",
+        "description": "",
+        "type": "background",
+        "keyword": "Contexto",
+        "steps": [
+          {
+            "result": {
+              "duration": 3079003523,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "que acessei a plataforma \"http://www.juliodelima.com.br/taskit/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "http://www.juliodelima.com.br/taskit/",
+                  "offset": 26
+                }
+              ],
+              "location": "TaskItSteps.que_acessei_a_plataforma(String)"
+            },
+            "keyword": "Dado "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 1784381275,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Logar com um usuario na plataforma TaskIt",
+        "description": "",
+        "id": "automatizar-o-site-do-julio-de-lima--taskit;logar-com-um-usuario-na-plataforma-taskit",
+        "after": [
+          {
+            "result": {
+              "duration": 69786703,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 10393588591,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "inserir as credenciais",
+            "match": {
+              "location": "TaskItSteps.inserir_as_credenciais(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Login",
+                  "Senha"
+                ]
+              },
+              {
+                "cells": [
+                  "Jenkins",
+                  "Jenkins"
+                ]
+              }
+            ],
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 5302393010,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "estarei logado com o usuario",
+            "match": {
+              "location": "TaskItSteps.estarei_logado_com_o_usuario()"
+            },
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ID2"
+          },
+          {
+            "name": "@RealizarLogin"
+          }
+        ]
+      }
+    ],
+    "name": "Automatizar o site do Julio de Lima, TaskIt",
+    "description": "",
+    "id": "automatizar-o-site-do-julio-de-lima--taskit",
+    "keyword": "Funcionalidade",
+    "uri": "src/test/resources/features/TaskIt.feature",
+    "tags": []
+  }
+]
