@@ -65,5 +65,46 @@ public class LoginPage {
             }
     }
 
+    public LoginPage informacoesUsuario() {
+        try {
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            this.navegador.findElement (By.cssSelector ("body > nav > div > div > ul.right.hide-on-med-and-down > li:nth-child(1) > a")).click ();
+            return this;
+        } catch (Exception e) {
+            WebElement mensagemPop = navegador.findElement (By.id ("toast-container"));
+            String mensagem = mensagemPop.getText();
+            assertEquals("Someone choose this login before, please pick another!", mensagem);
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            throw new RuntimeException ("Não foi possivel logar na pagina" + e);
+        }
+    }
+
+    public LoginPage abaMoreData(){
+        try {
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            this.navegador.findElement (By.cssSelector ("body > div.container > div > div > div > div:nth-child(1) > ul > li:nth-child(3) > a")).click ();
+            return this;
+        } catch (Exception e) {
+            WebElement mensagemPop = navegador.findElement (By.id ("toast-container"));
+            String mensagem = mensagemPop.getText();
+            assertEquals("Someone choose this login before, please pick another!", mensagem);
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            throw new RuntimeException ("Não foi possivel logar na pagina" + e);
+        }
+    }
+
+    public LoginPage clicarBotaoAddMoreData(){
+        try {
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            this.navegador.findElement (By.cssSelector ("#moredata > div.row.center > button")).click ();
+            return this;
+        } catch (Exception e) {
+            WebElement mensagemPop = navegador.findElement (By.id ("toast-container"));
+            String mensagem = mensagemPop.getText();
+            assertEquals("Someone choose this login before, please pick another!", mensagem);
+            Reports.tirarFoto (this.navegador, Utils.getTimestamp ());
+            throw new RuntimeException ("Não foi possivel logar na pagina" + e);
+        }
+    }
 }
 

@@ -53,4 +53,38 @@ public class TaskItSteps {
         Thread.sleep(5000);
     }
 
+    @Dado("^que estou logado na plataforma com as seguintes credenciais$")
+    public void que_estou_logado_na_plataforma_com_as_seguintes_credenciais(DataTable arg1) throws Exception {
+        this.loginPage.clicarLogin ();
+        List<Map<String, String>> list = arg1.asMaps(String.class, String.class);
+        this.loginPage.inserirLogin(list.get(0).get("Login"));
+        this.loginPage.inserirSenha(list.get(0).get("Senha"));
+        this.loginPage.botaoLogar();
+        Thread.sleep(5000);
+        this.cadastroPage.loginEfetuado();
+        Thread.sleep(5000);
+
+    }
+
+    @Dado("^na aba de ADD MORE DATA$")
+    public void na_aba_de_ADD_MORE_DATA() throws Exception {
+        this.loginPage.informacoesUsuario().abaMoreData().clicarBotaoAddMoreData();
+    }
+
+//    @Quando("^inserir os dados$")
+//    public void inserir_os_dados(DataTable arg1) throws Exception {
+//        // Write code here that turns the phrase above into concrete actions
+//        // For automatic transformation, change DataTable to one of
+//        // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+//        // E,K,V must be a scalar (String, Integer, Date, enum etc)
+//        throw new PendingException();
+//    }
+//
+//    @Entao("^o contato será adicionado$")
+//    public void o_contato_será_adicionado() throws Exception {
+//        // Write code here that turns the phrase above into concrete actions
+//        throw new PendingException();
+//    }
+
+
 }
