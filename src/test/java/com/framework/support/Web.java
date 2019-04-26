@@ -13,7 +13,7 @@ public class Web {
     public static WebDriver getChromeDriver() {
         Dimension d = new Dimension(1382,744);
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         System.setProperty("webdriver.chrome.driver", BINARY_CHROME_DRIVER);
 
         WebDriver navegador = new ChromeDriver(options);
