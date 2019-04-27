@@ -1,0 +1,34 @@
+  node("master") {
+
+        def branchName = "*master"
+        def urlDoProjeto = "https://github.com/ErichFratini/FrameworkJenkins"
+        stage('list'){
+            echo "branchName ==> ${branchName}"
+            echo "urlDoProjeto ==> ${urlDoProjeto}"
+        }
+        stage('Checkout') {
+          checkout([$class: 'GitSCM', branches: [[name: branchName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'UsrGitJenkikns', url: urlDoProjeto]]])
+        }
+        
+        stage('Build') {
+            try {
+             sh "mvn clean test -U -Dcucumber.options=\'--tags ${Tags}\'"
+            } catch(Exception e){
+                throw e
+            }finally {
+                echo "Cucumber Report Publisher"
+                step([$class: 'CucumberReportPublisher',
+                jenkinsBasePath: 'http://localhost:8080/job/FrameworkJenkins/',
+                fileIncludePattern: '*.json',
+                fileExcludePattern: '',
+                jsonReportDirectory: './target/cucumber/',
+                ignoreFailedTests: false, 
+                missingFails: false, 
+                pendingFails: false, 
+                skippedFails: false, 
+                undefinedFails: false, 
+                parallelTesting: false])
+            }
+        }
+    }
+
